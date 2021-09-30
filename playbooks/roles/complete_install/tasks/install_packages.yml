@@ -2,6 +2,8 @@
 - name: Install yum packages list {{ yum_packages_to_install | join(' ') }}
   yum:
     name: "{{ yum_packages_to_install }}"
+  notify:
+    - start firewalld
 
 - name: Upload python requierements file
   copy:

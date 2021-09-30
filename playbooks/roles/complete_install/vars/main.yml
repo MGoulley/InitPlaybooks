@@ -15,4 +15,5 @@ yum_packages_to_install:
   - bzip2-devel 
   - libffi-devel 
   - xz-devel
+  - wget
 requirements_file_path: /tmp/requirements_python.txt
