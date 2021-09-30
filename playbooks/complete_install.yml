@@ -4,6 +4,3 @@
   become: yes
   roles:
     - complete_install
-  handlers:
-  - include: roles/complete_install/handlers/main.yml
-    static: yes

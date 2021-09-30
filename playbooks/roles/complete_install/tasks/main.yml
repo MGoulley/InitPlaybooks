@@ -3,6 +3,10 @@
   include_tasks:
     file: install_packages.yml
 
+- name: Start Installed Services
+  include_tasks:
+    file: start_installed_services.yml
+
 - name: Install Security
   include_tasks:
     file: install_security.yml

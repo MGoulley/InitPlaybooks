@@ -1,0 +1,9 @@
+---
+- name: start firewalld
+  service:
+    name: firewalld
+    state: started
+    enabled: yes
+
+- name: Reload systemd
+  command: systemctl daemon-reload

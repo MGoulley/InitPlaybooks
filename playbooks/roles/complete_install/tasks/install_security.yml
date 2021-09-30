@@ -40,7 +40,11 @@
     owner: root
     group: root
     mode: 0600
-  notify: Reload SSH
+
+- name: Reload SSH
+  service:
+    name: sshd
+    state: reloaded
 
 - name: Add SSH port to internal zone
   firewalld:
