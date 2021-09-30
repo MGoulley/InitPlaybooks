@@ -1,0 +1,12 @@
+---
+# vars file for test
+allowed_ssh_networks:
+    - 192.168.122.0/24
+    - 10.10.10.0/24
+unnecessary_services:
+    - postfix
+    - telnet
+unnecessary_software:
+  - tcpdump
+  - nmap-ncat
+  - wpa_supplicant

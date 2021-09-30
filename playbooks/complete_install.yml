@@ -1,0 +1,6 @@
+---
+- name: Install complete
+  hosts: all
+  become: yes
+  roles:
+    - complete_install
