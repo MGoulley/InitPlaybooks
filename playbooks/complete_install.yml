@@ -5,5 +5,5 @@
   roles:
     - complete_install
   handlers:
-  - include: /complete_install/handlers/main.yml
+  - include: roles/complete_install/handlers/main.yml
     static: yes
