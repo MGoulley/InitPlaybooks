@@ -9,8 +9,10 @@ unnecessary_software:
   - tcpdump
   - nmap-ncat
   - wpa_supplicant
-python_packages_to_install:
-  - requests
-  - ipython
 yum_packages_to_install:
   - firewalld
+  - openssl-devel 
+  - bzip2-devel 
+  - libffi-devel 
+  - xz-devel
+requirements_file_path: /tmp/requirements_python.txt
