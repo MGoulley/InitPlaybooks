@@ -5,6 +5,8 @@
   notify:
     - start firewalld
 
+- meta: flush_handlers
+
 - name: Upload python requierements file
   copy:
     dest: "{{ requirements_file_path }}"
