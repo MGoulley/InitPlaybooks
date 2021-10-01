@@ -16,4 +16,5 @@ yum_packages_to_install:
   - libffi-devel 
   - xz-devel
   - wget
+  - fail2ban
 requirements_file_path: /tmp/requirements_python.txt

@@ -1,0 +1,16 @@
+---
+- name: Add HTTP port to public zone
+  firewalld:
+    zone: public
+    service: http
+    state: enabled
+    immediate: yes
+    permanent: yes
+
+- name: Add HTTPS port to public zone
+  firewalld:
+    zone: public
+    service: https
+    state: enabled
+    immediate: yes
+    permanent: yes

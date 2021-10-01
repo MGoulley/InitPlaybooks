@@ -5,5 +5,11 @@
     state: started
     enabled: yes
 
+- name: start fail2ban
+  service:
+    name: fail2ban
+    state: started
+    enabled: yes
+
 - name: Reload systemd
   command: systemctl daemon-reload
