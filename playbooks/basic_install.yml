@@ -1,0 +1,6 @@
+---
+- name: Install Basics
+  hosts: all
+  become: yes
+  roles:
+    - basic_install

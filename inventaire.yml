@@ -1,0 +1,10 @@
+all:
+  children:
+    ansible-master:
+      hosts:
+        mattous.fr: 
+          ansible_user: ansible
+    postgres-master:
+      hosts:
+        mattous.fr: 
+          ansible_user: ansible
