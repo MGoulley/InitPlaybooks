@@ -19,3 +19,5 @@ yum_packages_to_install:
   - fail2ban
 python_requirements_file_path: /tmp/requirements_python.txt
 galaxy_requirements_file_path: /tmp/requirements_galaxy.yml
+ansible_collections:
+  - community.general

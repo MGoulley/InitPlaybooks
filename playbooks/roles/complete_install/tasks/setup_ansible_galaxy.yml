@@ -7,6 +7,10 @@
     group: root
     mode: 0644
 
+- name: Install collections from Ansible Galaxy
+  command: "ansible-galaxy collection install {{ item }}"
+  with_items: "{{ ansible_collections }}"
+
 - name: Install roles from Ansible Galaxy
   command: "ansible-galaxy install -r {{ galaxy_requirements_file_path }}"
 
