@@ -1,0 +1,16 @@
+---
+- name: Upload galaxy requirements file
+  copy:
+    dest: "{{ galaxy_requirements_file_path }}"
+    src: files/requirements_galaxy.txt
+    owner: root
+    group: root
+    mode: 0644
+
+- name: Install roles from Ansible Galaxy
+  command: ansible-galaxy install -r {{ item.item }}
+
+- name: Remove galaxy requirements file
+  ansible.builtin.file:
+    path: "{{ galaxy_requirements_file_path }}"
+    state: absent

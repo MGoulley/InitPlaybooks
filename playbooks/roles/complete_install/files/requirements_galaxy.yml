@@ -1,0 +1,5 @@
+# from galaxy
+- name: community.general
+
+# from GitHub
+#- src: https://github.com/bennojoy/nginx

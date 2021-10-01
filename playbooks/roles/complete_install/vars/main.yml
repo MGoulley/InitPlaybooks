@@ -17,4 +17,5 @@ yum_packages_to_install:
   - xz-devel
   - wget
   - fail2ban
-requirements_file_path: /tmp/requirements_python.txt
+python_requirements_file_path: /tmp/requirements_python.txt
+galaxy_requirements_file_path: /tmp/requirements_galaxy.yml

@@ -10,12 +10,17 @@
 
 - name: Upload python requierements file
   copy:
-    dest: "{{ requirements_file_path }}"
-    src: etc/tmp/requirements_python.txt
+    dest: "{{ python_requirements_file_path }}"
+    src: files/requirements_python.txt
     owner: root
     group: root
     mode: 0644
 
 - name: Install python requiered packages
   pip:
-    requirements: "{{ requirements_file_path }}"
+    requirements: "{{ python_requirements_file_path }}"
+
+- name: Remove python requirements file
+  ansible.builtin.file:
+    path: "{{ python_requirements_file_path }}"
+    state: absent
