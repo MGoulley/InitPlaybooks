@@ -17,3 +17,7 @@
   with_items:
     - /etc/issue
     - /etc/issue.net
+
+- name: Set timezone to Europe/Paris
+  community.general.timezone:
+    name: Europe/Paris
