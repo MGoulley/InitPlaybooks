@@ -8,7 +8,7 @@
     mode: 0644
 
 - name: Install roles from Ansible Galaxy
-  command: ansible-galaxy install -r {{ item.item }}
+  command: "ansible-galaxy install -r {{ galaxy_requirements_file_path }}"
 
 - name: Remove galaxy requirements file
   ansible.builtin.file:
