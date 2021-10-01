@@ -2,7 +2,7 @@
 - name: Upload galaxy requirements file
   copy:
     dest: "{{ galaxy_requirements_file_path }}"
-    src: files/requirements_galaxy.txt
+    src: files/requirements_galaxy.yml
     owner: root
     group: root
     mode: 0644
