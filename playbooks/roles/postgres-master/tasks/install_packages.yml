@@ -1,26 +1,25 @@
----
-- name: Perform full patching
-  package:
-    name: '*'
-    state: latest
-    
-- name: Install yum packages list {{ yum_packages_to_install | join(' ') }}
-  yum:
-    name: "{{ yum_packages_to_install }}"
+--- 
+- name: "Install packages"
+  dnf: "name={{ item }} state=present"
+  with_items:
+    - postgresql
+    - postgresql-server
 
-- name: Upload python requierements file
-  copy:
-    dest: "{{ python_requirements_file_path }}"
-    src: files/requirements_python.txt
-    owner: root
-    group: root
-    mode: 0644
+- name: "Install Python packages"
+  pip: "name={{ item }}  state=present"
+  with_items:
+    - psycopg2-binary
 
-- name: Install python requiered packages
-  pip:
-    requirements: "{{ python_requirements_file_path }}"
+- name: "Find out if PostgreSQL is initialized"
+  ansible.builtin.stat:
+    path: "/var/lib/pgsql/data/pg_hba.conf"
+  register: postgres_data
 
-- name: Remove python requirements file
-  ansible.builtin.file:
-    path: "{{ python_requirements_file_path }}"
-    state: absent
+- name: "Initialize PostgreSQL"
+  shell: "postgresql-setup initdb"
+  when: not postgres_data.stat.exists
+
+- name: "Start and enable services"
+  service: "name={{ item }} state=started enabled=yes"
+  with_items:
+    - postgresql

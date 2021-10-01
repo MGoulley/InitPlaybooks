@@ -3,3 +3,6 @@
   include_tasks:
     file: install_packages.yml
 
+- name: Setup Default Database
+  include_tasks:
+    file: create_default_db.yml
