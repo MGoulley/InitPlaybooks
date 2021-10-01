@@ -1,5 +1,10 @@
+---
+#roles:
 # from galaxy
-- name: community.general
-
+#  - name: community.general
 # from GitHub
 #- src: https://github.com/bennojoy/nginx
+collections:
+  - name: community.general
+    version: 3.7.0
+    source: https://galaxy.ansible.com
