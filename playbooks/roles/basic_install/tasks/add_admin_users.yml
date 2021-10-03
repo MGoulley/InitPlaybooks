@@ -10,7 +10,7 @@
     group: admin
     shell: /bin/bash
     home: /home/admin
-    create_home: yes
+    create_home: true
     state: present
 
 - name: Add SSH public key for user

@@ -2,8 +2,8 @@
 - name: Perform full patching
   package:
     name: '*'
-    state: latest
-    
+    state: present
+
 - name: Install yum packages list {{ yum_packages_to_install | join(' ') }}
   yum:
     name: "{{ yum_packages_to_install }}"

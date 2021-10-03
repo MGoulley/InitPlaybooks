@@ -3,13 +3,14 @@
   service:
     name: firewalld
     state: started
-    enabled: yes
+    enabled: true
 
 - name: start fail2ban
   service:
     name: fail2ban
     state: started
-    enabled: yes
+    enabled: true
 
 - name: Reload systemd
-  command: systemctl daemon-reload
+  service:
+    daemon_reload: yes

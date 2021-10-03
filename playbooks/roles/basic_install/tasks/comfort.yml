@@ -20,4 +20,4 @@
 
 - name: Set timezone to Europe/Paris
   community.general.timezone:
-    name: Europe/Paris
+    name: "Europe/Paris"

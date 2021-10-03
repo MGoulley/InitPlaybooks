@@ -1,12 +1,12 @@
 ---
 - name: Install Basics
   hosts: all
-  become: yes
+  become: true
   roles:
     - basic_install
 
 - name: Install postgres
   hosts: postgres-master
-  become: yes
+  become: true
   roles:
     - postgres-master

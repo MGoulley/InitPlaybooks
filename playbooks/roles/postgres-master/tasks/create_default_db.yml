@@ -3,7 +3,7 @@
   postgresql_db:
     state: present
     name: "{{ db_name }}"
-  become: yes
+  become: true
   become_user: postgres
 
 - name: "Create db user"
@@ -11,7 +11,7 @@
     state: present
     name: "{{ db_user }}"
     password: "{{ db_password }}"
-  become: yes
+  become: true
   become_user: postgres
 
 - name: "Grant db user access to app db"
@@ -19,9 +19,9 @@
     type: database
     database: "{{ db_name }}"
     roles: "{{ db_user }}"
-    grant_option: no
+    grant_option: false
     privs: all
-  become: yes
+  become: true
   become_user: postgres
 
 - name: "Allow md5 connection for the db user"
@@ -32,6 +32,7 @@
     method: md5
     users: "{{ db_user }}"
     create: true
-  become: yes
+  become: true
   become_user: postgres
   notify: restart postgres
+  

@@ -1,6 +1,6 @@
 ---
 - name: Install postgres
   hosts: postgres-master
-  become: yes
+  become: true
   roles:
     - postgres-master

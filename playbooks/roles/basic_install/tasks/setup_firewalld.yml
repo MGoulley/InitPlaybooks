@@ -4,13 +4,13 @@
     zone: public
     service: http
     state: enabled
-    immediate: yes
-    permanent: yes
+    immediate: true
+    permanent: true
 
 - name: Add HTTPS port to public zone
   firewalld:
     zone: public
     service: https
     state: enabled
-    immediate: yes
-    permanent: yes
+    immediate: true
+    permanent: true
