@@ -1,0 +1,54 @@
+---
+- name: Install Gitea role from Ansible Galaxy
+  hosts: gitea-server
+  command: "ansible-galaxy install thomas_maurice.ansible_role_gitea"
+
+- name: "Setup postgres Gitea Database"
+  hosts: postgres-master
+  postgresql_db:
+    state: present
+    name: "{{ gitea_db_name }}"
+  become: true
+  become_user: postgres
+
+- name: "Create Gitea db user"
+  hosts: postgres-master
+  postgresql_user:
+    state: present
+    name: "{{ gitea_db_user }}"
+    password: "{{ gitea_db_password }}"
+  become: true
+  become_user: postgres
+
+- name: "Grant Gitea db user access to app db"
+  hosts: postgres-master
+  postgresql_privs:
+    type: database
+    database: "{{ gitea_db_name }}"
+    roles: "{{ gitea_db_user }}"
+    grant_option: false
+    privs: all
+  become: true
+  become_user: postgres
+
+- name: "Allow md5 connection for the db user"
+  hosts: postgres-master
+  postgresql_pg_hba:
+    dest: "~/data/pg_hba.conf"
+    contype: host
+    databases: all
+    method: md5
+    users: "{{ gitea_db_user }}"
+    create: true
+  become: true
+  become_user: postgres
+
+- name: restart postgres
+  hosts: postgres-master
+  service: name=postgresql state=restarted
+
+- name: Install Gitea Server
+  hosts: gitea-server
+  become: true
+  roles:
+    - gitea
