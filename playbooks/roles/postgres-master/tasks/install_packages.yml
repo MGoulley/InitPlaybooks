@@ -1,14 +1,13 @@
 ---
-- name: "Install packages"
-  dnf: "name={{ item }} state=present"
-  with_items:
-    - postgresql
-    - postgresql-server
+- name: "Install postgres packages"
+  yum:
+    name: "{{ postgres_packages_to_install }}"
+    state: present
 
-- name: "Install Python packages"
-  pip: "name={{ item }}  state=present"
-  with_items:
-    - psycopg2-binary
+- name: "Install Python postgres packages"
+  pip:
+    name: "{{ python_packages_to_install }}"
+    state: present
 
 - name: "Find out if PostgreSQL is initialized"
   ansible.builtin.stat:

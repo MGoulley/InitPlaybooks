@@ -2,3 +2,13 @@
 db_user: app1user
 db_password: app1user
 db_name: app1
+
+postgres_packages_to_install:
+  - python3-devel
+  - postgresql-libs
+  - postgresql-devel
+  - postgresql
+  - postgresql-server
+
+python_packages_to_install:
+  - psycopg2-binary
