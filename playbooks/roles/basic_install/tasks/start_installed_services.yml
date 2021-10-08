@@ -13,4 +13,7 @@
 
 - name: Reload systemd
   service:
-    daemon_reload: yes
+    daemon_reload: true
+
+- name: start locate
+  shell: "updatedb"

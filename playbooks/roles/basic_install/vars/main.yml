@@ -20,6 +20,7 @@ yum_packages_to_install:
   - xz-devel
   - wget
   - fail2ban
+  - mlocate
 
 python_requirements_file_path: /tmp/requirements_python.txt
 
