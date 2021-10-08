@@ -42,3 +42,8 @@
     ansible.builtin.systemd:
       name: postgresql 
       state: restarted
+
+- name: "Install gitea"
+  hosts: gitea-server
+  roles:
+    - gitea
