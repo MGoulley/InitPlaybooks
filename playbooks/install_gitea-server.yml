@@ -5,7 +5,7 @@
   - name: Install Gitea role from Ansible Galaxy
     shell: "ansible-galaxy install thomas_maurice.ansible_role_gitea"
 
-- name: Install Gitea requiered roles from Ansible Galaxy
+- name: Setup postgres DB for gitea
   hosts: postgres-master
   become: true
   become_user: postgres
@@ -38,7 +38,11 @@
       users: "{{ gitea_db_user }}"
       create: true
 
-  - name: restart postgres
+- name: Restart postgres DB
+  hosts: postgres-master
+  become: true
+  tasks:
+  - name: Restart postgres
     ansible.builtin.systemd:
       name: postgresql 
       state: restarted
