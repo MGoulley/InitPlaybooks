@@ -52,3 +52,15 @@
   become: true
   roles:
     - thomas_maurice.ansible_role_gitea
+
+- name: "post-Install Setup"
+  hosts: gitea-server
+  become: true
+  tasks:
+  - name: Add gitea port to internal zone in firewall
+    firewalld:
+      zone: internal
+      port: "{{ gitea_http_port }}/tcp"
+      state: enabled
+      immediate: true
+      permanent: true
