@@ -49,5 +49,6 @@
 
 - name: "Install gitea"
   hosts: gitea-server
+  become: true
   roles:
     - thomas_maurice.ansible_role_gitea
