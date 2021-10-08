@@ -1,15 +1,9 @@
 ---
-- name: Install Basics
-  hosts: all
-  become: true
-  roles:
-    - basic_install
+- name: Install All requiered Basics
+  import_playbook: basic_install.yml
 
-- name: Install postgres
-  hosts: postgres-master
-  become: true
-  roles:
-    - postgres-master
+- name: Install Postgres masters
+  import_playbook: install_postgres-master.yml
 
 - name: Install Gitea Server
   import_playbook: install_gitea-server.yml

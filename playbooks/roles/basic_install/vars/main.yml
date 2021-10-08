@@ -14,13 +14,14 @@ unnecessary_software:
 
 yum_packages_to_install:
   - firewalld
-  - openssl-devel 
-  - bzip2-devel 
-  - libffi-devel 
+  - openssl-devel
+  - bzip2-devel
+  - libffi-devel
   - xz-devel
   - wget
   - fail2ban
   - mlocate
+  - nginx
 
 python_requirements_file_path: /tmp/requirements_python.txt
 

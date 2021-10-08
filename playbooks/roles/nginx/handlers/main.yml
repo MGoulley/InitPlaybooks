@@ -1,6 +1,0 @@
----
-# handlers file for test
-- name: Reload SSH
-  service:
-    name: sshd
-    state: reloaded

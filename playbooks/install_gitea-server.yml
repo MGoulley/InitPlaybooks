@@ -53,7 +53,7 @@
   roles:
     - thomas_maurice.ansible_role_gitea
 
-- name: "post-Install Setup"
+- name: "Post-Install Setup"
   hosts: gitea-server
   become: true
   tasks:
