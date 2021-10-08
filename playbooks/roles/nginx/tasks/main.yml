@@ -1,0 +1,36 @@
+---
+- name: Install Requiered Packages
+  include_tasks:
+    file: install_packages.yml
+
+- name: Start Installed Services
+  include_tasks:
+    file: start_installed_services.yml
+
+- name: Add admin users
+  include_tasks:
+    file: add_admin_users.yml
+
+- name: Setup Ansible Galaxy
+  include_tasks:
+    file: setup_ansible_galaxy.yml
+
+- name: Setup SSH
+  include_tasks:
+    file: setup_ssh.yml
+
+- name: Setup Firewalld
+  include_tasks:
+    file: setup_firewalld.yml
+
+- name: Setup Jail2ban
+  include_tasks:
+    file: setup_jail2ban.yml
+
+- name: Remove bad packages
+  include_tasks:
+    file: remove_bad_packages.yml
+
+- name: Install Comfort
+  include_tasks:
+    file: comfort.yml

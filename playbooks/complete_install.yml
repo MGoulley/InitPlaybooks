@@ -10,3 +10,6 @@
   become: true
   roles:
     - postgres-master
+
+- name: Install Gitea Server
+  import_playbook: install_gitea-server.yml

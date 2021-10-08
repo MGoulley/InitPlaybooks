@@ -1,0 +1,16 @@
+---
+- name: start firewalld
+  service:
+    name: firewalld
+    state: started
+    enabled: true
+
+- name: start fail2ban
+  service:
+    name: fail2ban
+    state: started
+    enabled: true
+
+- name: Reload systemd
+  service:
+    daemon_reload: yes
