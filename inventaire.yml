@@ -5,14 +5,17 @@ all:
       hosts:
         mattous.fr: 
           ansible_user: ansible
+          ansible_host: 51.75.200.220
     postgres-master:
       hosts:
         mattous.fr: 
           ansible_user: ansible
+          ansible_host: 51.75.200.220
     gitea-server:
       hosts:
         mattous.fr: 
           ansible_user: ansible
+          ansible_host: 51.75.200.220
       vars:
         gitea_version: "1.15.3"
         gitea_user: "gitea"
@@ -35,7 +38,7 @@ all:
         gitea_ssh_listen: 0.0.0.0
         gitea_ssh_port: 22
         gitea_db_type: postgres
-        gitea_db_host: mattous.fr:3306
+        gitea_db_host: mattous.fr:5234
         gitea_db_name: gitea
         gitea_db_user: gitea
         gitea_db_password: supergiteapwd
