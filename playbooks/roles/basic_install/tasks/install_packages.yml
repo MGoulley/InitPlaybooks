@@ -3,6 +3,9 @@
   yum:
     name: '*'
     state: latest
+
+- name: Remove unused packages
+  yum:
     autoremove: true
 
 - name: Install yum packages list {{ yum_packages_to_install | join(' ') }}
