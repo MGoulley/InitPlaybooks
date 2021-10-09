@@ -15,6 +15,10 @@
   include_tasks:
     file: setup_ansible_galaxy.yml
 
+- name: Set hostname
+  hostname:
+    name: {{ inventory_hostname }}
+
 - name: Setup SSH
   include_tasks:
     file: setup_ssh.yml
