@@ -1,7 +1,7 @@
 ---
 - name: "create www directory"
   file:
-    path: /var/www/{{ domain }}
+    path: /var/www/{{ inventory_hostname }}
     state: directory
     mode: '0775'
     owner: "{{ ansible_user }}"
@@ -15,7 +15,7 @@
 - name: copy nginx site.conf
   template:
     src: etc/nginx/site.conf.j2
-    dest: /etc/nginx/sites-enabled/{{ domain }}
+    dest: /etc/nginx/sites-enabled/{{ inventory_hostname }}
     owner: root
     group: root
     mode: '0644'
