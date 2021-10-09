@@ -12,6 +12,12 @@
     path: /etc/nginx/sites-enabled/default
     state: absent
 
+- name: Enable and start nginx
+  service:
+    name: nginx
+    state: restarted
+    enabled: true
+
 - name: copy nginx site.conf
   template:
     src: etc/nginx/site.conf.j2
