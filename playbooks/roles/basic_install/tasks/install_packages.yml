@@ -1,8 +1,9 @@
 ---
 - name: Perform full patching
-  package:
+  yum:
     name: '*'
-    state: present
+    state: latest
+    autoremove: true
 
 - name: Install yum packages list {{ yum_packages_to_install | join(' ') }}
   yum:
