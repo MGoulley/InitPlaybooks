@@ -38,7 +38,7 @@ all:
         gitea_ssh_listen: 0.0.0.0
         gitea_ssh_port: 22
         gitea_db_type: postgres
-        gitea_db_host: mattous.fr:5234
+        gitea_db_host: mattous.fr:5432
         gitea_db_name: gitea
         gitea_db_user: gitea
         gitea_db_password: supergiteapwd
