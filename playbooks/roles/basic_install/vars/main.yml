@@ -23,6 +23,7 @@ yum_packages_to_install:
   - mlocate
   - nginx
   - net-tools
+  - telnet
 
 python_requirements_file_path: /tmp/requirements_python.txt
 
