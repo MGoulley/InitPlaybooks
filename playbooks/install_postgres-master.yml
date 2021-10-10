@@ -12,7 +12,7 @@
   - name: Add postgres service to firewall
     firewalld:
       zone: internal
-      service: "postgres"
+      service: "postgresql"
       state: enabled
       immediate: true
       permanent: true
