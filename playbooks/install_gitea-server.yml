@@ -59,7 +59,7 @@
   tasks:
   - name: Add gitea port to internal zone in firewall
     firewalld:
-      zone: internal
+      zone: public
       port: "{{ gitea_http_port }}/tcp"
       state: enabled
       immediate: true

@@ -11,7 +11,7 @@
   tasks:
   - name: Add postgres service to firewall
     firewalld:
-      zone: internal
+      zone: public
       service: "postgresql"
       state: enabled
       immediate: true
