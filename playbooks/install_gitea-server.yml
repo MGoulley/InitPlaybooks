@@ -64,3 +64,11 @@
       state: enabled
       immediate: true
       permanent: true
+
+  - name: copy nginx site.conf
+  template:
+    src: files/nginx/gitea.conf.j2
+    dest:  /etc/nginx/conf.d/gitea.conf
+    owner: root
+    group: root
+    mode: '0644'
