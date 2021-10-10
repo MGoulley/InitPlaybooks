@@ -22,6 +22,7 @@ yum_packages_to_install:
   - fail2ban
   - mlocate
   - nginx
+  - net-tools
 
 python_requirements_file_path: /tmp/requirements_python.txt
 
