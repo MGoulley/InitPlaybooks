@@ -35,3 +35,11 @@
   become: true
   become_user: postgres
   notify: restart postgres
+
+- name: "Add listen to 0.0.0.0"
+  postgresql_set:
+    name: "listen_addresses"
+    value: "0.0.0.0"
+  become: true
+  become_user: postgres
+  notify: restart postgres
