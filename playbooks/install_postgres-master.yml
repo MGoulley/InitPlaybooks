@@ -4,3 +4,15 @@
   become: true
   roles:
     - postgres-master
+
+- name: "Post-Install Setup"
+  hosts: postgres-master
+  become: true
+  tasks:
+  - name: Add postgres service to firewall
+    firewalld:
+      zone: internal
+      service: "postgres"
+      state: enabled
+      immediate: true
+      permanent: true

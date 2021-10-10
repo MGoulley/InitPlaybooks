@@ -18,7 +18,9 @@
   shell: "postgresql-setup initdb"
   when: not postgres_data.stat.exists
 
-- name: "Start and enable services"
-  service: "name={{ item }} state=started enabled=yes"
-  with_items:
-    - postgresql
+- name: "Start and enable postgres service"
+  service:
+    name: postgresql
+    state: started
+    enabled: true
+
