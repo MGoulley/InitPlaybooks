@@ -1,11 +1,7 @@
 ---
 # vars file for test
-allowed_ssh_networks:
-  - 86.209.244.196/24
-
 unnecessary_services:
   - postfix
-  - telnet
 
 unnecessary_software:
   - tcpdump
