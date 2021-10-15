@@ -35,6 +35,10 @@
   include_tasks:
     file: setup_nginx.yml
 
+- name: Setup SSL
+  include_tasks:
+    file: setup_ssl.yml
+
 - name: Setup Git
   include_tasks:
     file: setup_git.yml
