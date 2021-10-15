@@ -24,6 +24,8 @@ yum_packages_to_install:
   - nginx
   - net-tools
   - telnet
+  - mod_ssl
+  - certbot
 
 python_requirements_file_path: /tmp/requirements_python.txt
 
