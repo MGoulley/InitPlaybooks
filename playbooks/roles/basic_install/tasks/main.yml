@@ -31,6 +31,10 @@
   include_tasks:
     file: setup_jail2ban.yml
 
+- name: Setup Nginx
+  include_tasks:
+    file: setup_nginx.yml
+
 - name: Setup Git
   include_tasks:
     file: setup_git.yml
