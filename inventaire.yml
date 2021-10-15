@@ -28,7 +28,7 @@ all:
         gitea_offline_mode: true
         # Some 'rendering' options for your URLs
         gitea_http_domain: git.mattous.fr
-        gitea_root_url: https://git.mattous.fr
+        gitea_root_url: http://git.mattous.fr
         # Here we assume we are behind a reverse proxy that will
         # handle https for us, so we bind on localhost:3000 using HTTP
         gitea_protocol: http
@@ -36,7 +36,7 @@ all:
         gitea_http_port: 3000
         # SSH server configuration
         gitea_ssh_listen: 0.0.0.0
-        gitea_ssh_port: 22
+        gitea_ssh_port: 2222
         gitea_db_type: postgres
         gitea_db_host: mattous.fr:5432
         gitea_db_name: gitea
