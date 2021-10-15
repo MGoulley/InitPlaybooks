@@ -68,12 +68,31 @@
   - name: copy gitea nginx conf
     template:
       src: files/nginx/gitea.conf.j2
-      dest: /etc/nginx/conf.d/gitea.conf
+      dest: /etc/nginx/sites-available/gitea.conf
       owner: root
       group: root
       mode: '0644'
 
+  - name: Create a symbolic link to enabled sites
+    ansible.builtin.file:
+      src: /etc/nginx/sites-available/gitea.conf
+      dest: /etc/nginx/sites-enabled
+      owner: root
+      group: root
+      state: link
+
   - name: Restart nginx to apply
     service:
       name: nginx
+      state: restarted
+  
+  - name: Set httpd_can_network_connect flag on and keep it persistent across reboots
+    ansible.posix.seboolean:
+      name: httpd_can_network_connect
+      state: yes
+      persistent: yes
+
+  - name: Restart gitea to apply
+    service:
+      name: gitea
       state: restarted

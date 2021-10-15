@@ -11,9 +11,9 @@
   include_tasks:
     file: add_admin_users.yml
 
-- name: Setup Ansible Galaxy
-  include_tasks:
-    file: setup_ansible_galaxy.yml
+- name: Install collections from Ansible Galaxy
+  command: "ansible-galaxy collection install {{ item }}"
+  with_items: "{{ ansible_collections }}"
 
 - name: Set hostname
   hostname:
@@ -30,6 +30,14 @@
 - name: Setup Jail2ban
   include_tasks:
     file: setup_jail2ban.yml
+
+- name: Setup Nginx
+  include_tasks:
+    file: setup_nginx.yml
+
+- name: Setup SSL
+  include_tasks:
+    file: setup_ssl.yml
 
 - name: Setup Git
   include_tasks:
