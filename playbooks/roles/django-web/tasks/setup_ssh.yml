@@ -1,0 +1,13 @@
+---
+- name: Add hardened SSH config
+  copy:
+    dest: /etc/ssh/sshd_config
+    src: etc/ssh/sshd_config
+    owner: root
+    group: root
+    mode: 0600
+
+- name: Reload SSH
+  service:
+    name: sshd
+    state: reloaded

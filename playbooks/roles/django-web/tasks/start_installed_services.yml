@@ -1,0 +1,25 @@
+---
+- name: Reload systemd
+  service:
+    daemon_reload: true
+
+- name: Enable and start firewalld
+  service:
+    name: firewalld
+    state: started
+    enabled: true
+
+- name: Enable and start fail2ban
+  service:
+    name: fail2ban
+    state: started
+    enabled: true
+
+- name: Enable and start nginx
+  service:
+    name: nginx
+    state: started
+    enabled: true
+
+- name: Start locate utility
+  shell: "updatedb"

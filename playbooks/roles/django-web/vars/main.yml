@@ -1,0 +1,33 @@
+---
+# vars file for test
+unnecessary_services:
+  - postfix
+
+unnecessary_software:
+  - tcpdump
+  - nmap-ncat
+  - wpa_supplicant
+
+yum_packages_to_install:
+  - firewalld
+  - openssl-devel
+  - bzip2-devel
+  - libffi-devel
+  - xz-devel
+  - wget
+  - fail2ban
+  - mlocate
+  - nginx
+  - net-tools
+  - telnet
+  - mod_ssl
+  - certbot
+  - letsencrypt
+  - python3-certbot-nginx
+
+python_requirements_file_path: /tmp/requirements_python.txt
+
+ansible_collections:
+  - community.general
+  - community.postgresql
+  - ansible.posix
