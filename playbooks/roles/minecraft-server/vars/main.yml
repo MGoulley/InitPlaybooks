@@ -12,5 +12,10 @@ minecraft_home: /home/{{ minecraft_user }}
 minecraft_port: 25565
 minecraft_host: 0.0.0.0
 
+tmux_session: minecraft
+tmux_window: vanilla
+
 java_path: /usr/bin/java
 java_jvm_opts: "-server -XX:+UseConcMarkSweepGC -XX:MaxGCPauseMillis=50 -Xmx3G"
+
+other_opts: ""

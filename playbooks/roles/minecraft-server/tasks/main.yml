@@ -13,3 +13,37 @@
   get_url:
     url: "{{ minecraft_repo_url }}"
     dest: "{{ minecraft_home }}/{{ minecraft_jar_name }}"
+
+- name: Create minecraft systemd service
+  template: 
+    src: minecraft-server.service.jinja
+    dest: /etc/systemd/system/minecraft-server.service 
+    owner: root 
+    group: root
+
+- name: Create minecraft systemd start script
+  template: 
+    src: minecraft-server-start.sh.jinja
+    dest: "{{ minecraft_home }}/minecraft-server-start.sh"
+    owner: root
+    group: root
+
+- name: Create minecraft systemd stop script
+  template: 
+    src: minecraft-server-stop.sh.jinja
+    dest: "{{ minecraft_home }}/minecraft-server-stop.sh"
+    owner: root
+    group: root
+
+- name: Add minecraft port to internal zone in firewall
+  firewalld:
+    zone: public
+    port: "{{ minecraft_port }}/tcp"
+    state: enabled
+    immediate: true
+    permanent: true
+
+- name: Start Minecraft server
+  service:
+    name: minecraft-server
+    state: started

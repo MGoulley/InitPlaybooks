@@ -4,8 +4,8 @@ Description=Minecraft server
 [Service]
 Type=forking
 Environment=SHELL=/bin/bash
-Environment=TMUX_SESSION=minecraft
-Environment=TMUX_WINDOW=spigot
+Environment=TMUX_SESSION={{ tmux_session }}
+Environment=TMUX_WINDOW={{ tmux_window }}
 Environment=JVM_OPTS="{{ java_jvm_opts }}"
 Restart=on-failure
 StartLimitBurst=5
