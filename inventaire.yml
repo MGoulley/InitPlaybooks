@@ -16,6 +16,11 @@ all:
         mattous.fr: 
           ansible_user: ansible
           ansible_host: 51.75.200.220
+      vars:
+        java_path: "/usr/lib/jvm/jre-16-openjdk-16.0.1.0.9-3.rolling.el8.x86_64/bin/java"
+        java_jvm_opts: "-server -Xmx3G"
+        other_opts: ""
+        minecraft_host: 0.0.0.0
     gitea-server:
       hosts:
         mattous.fr: 

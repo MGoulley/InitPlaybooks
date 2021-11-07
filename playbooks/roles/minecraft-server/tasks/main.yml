@@ -1,9 +1,9 @@
 ---
 - name: Create minecraft user
-  user: name={{minecraft_user}} home={{ minecraft_home }} createhome=no system=yes shell=/bin/false
+  user: name={{ minecraft_user }} home={{ minecraft_home }} createhome=no system=yes shell=/bin/false
 
 - name: Setup minecraft home
-  file: path={{ minecraft_home }} state=directory owner={{minecraft_user}} group={{minecraft_user}}
+  file: path={{ minecraft_home }} state=directory owner={{ minecraft_user }} group={{minecraft_user}}
 
 - name: Install requiered packages
   include_tasks:
@@ -14,12 +14,19 @@
     url: "{{ minecraft_repo_url }}"
     dest: "{{ minecraft_home }}/{{ minecraft_jar_name }}"
 
+- name: Create minecraft server properties
+  template: 
+    src: server.properties.jinja
+    dest: "{{ minecraft_home }}/server.properties"
+    owner: "{{ minecraft_user }}"
+    group: "{{ minecraft_user }}"
+
 - name: Copy EULA file
   copy: 
     src: minecraft-eula.txt
     dest: "{{ minecraft_home }}/eula.txt"
-    owner: root
-    group: root
+    owner: "{{ minecraft_user }}"
+    group: "{{ minecraft_user }}"
 
 - name: Create minecraft systemd service
   template: 
