@@ -1,0 +1,6 @@
+---
+- name: Install Minecraft server
+  hosts: minecraft-server
+  become: true
+  roles:
+    - minecraft-server
