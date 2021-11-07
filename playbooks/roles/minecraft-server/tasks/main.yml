@@ -50,12 +50,8 @@
     immediate: true
     permanent: true
 
-- name: Restart gitea to apply
-  service:
-    name: minecraft-server
-    state: enable
-
 - name: Start Minecraft server
   service:
     name: minecraft-server
+    enabled: yes
     state: started
