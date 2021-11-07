@@ -1,52 +1,15 @@
 ---
-- name: Install Requiered Packages
+- name: Create minecraft user
+  user: name={{minecraft_user}} home={{ minecraft_home }} createhome=no system=yes shell=/bin/false
+
+- name: Setup minecraft home
+  file: path={{ minecraft_home }} state=directory owner={{minecraft_user}} group={{minecraft_user}}
+
+- name: Install requiered packages
   include_tasks:
     file: install_packages.yml
 
-- name: Start Installed Services
-  include_tasks:
-    file: start_installed_services.yml
-
-- name: Add admin users
-  include_tasks:
-    file: add_admin_users.yml
-
-- name: Install collections from Ansible Galaxy
-  command: "ansible-galaxy collection install {{ item }}"
-  with_items: "{{ ansible_collections }}"
-
-- name: Set hostname
-  hostname:
-    name: "{{ inventory_hostname }}"
-
-- name: Setup SSH
-  include_tasks:
-    file: setup_ssh.yml
-
-- name: Setup Firewalld
-  include_tasks:
-    file: setup_firewalld.yml
-
-- name: Setup Jail2ban
-  include_tasks:
-    file: setup_jail2ban.yml
-
-- name: Setup Nginx
-  include_tasks:
-    file: setup_nginx.yml
-
-- name: Setup SSL
-  include_tasks:
-    file: setup_ssl.yml
-
-- name: Setup Git
-  include_tasks:
-    file: setup_git.yml
-
-- name: Remove bad packages
-  include_tasks:
-    file: remove_bad_packages.yml
-
-- name: Install Comfort
-  include_tasks:
-    file: comfort.yml
+- name: Download minecraft server
+  get_url:
+    url: "{{ minecraft_repo_url }}"
+    dest: "{{ minecraft_home }}/{{ minecraft_jar_name }}"
