@@ -24,6 +24,7 @@ yum_packages_to_install:
   - certbot
   - letsencrypt
   - python3-certbot-nginx
+  - java-1.8.0-openjdk-devel.x86_64
 
 python_requirements_file_path: /tmp/requirements_python.txt
 
