@@ -14,6 +14,13 @@
     url: "{{ minecraft_repo_url }}"
     dest: "{{ minecraft_home }}/{{ minecraft_jar_name }}"
 
+- name: Copy EULA file
+  copy: 
+    src: minecraft-eula.txt
+    dest: "{{ minecraft_home }}/eula.txt"
+    owner: root
+    group: root
+
 - name: Create minecraft systemd service
   template: 
     src: minecraft-server.service.jinja
@@ -42,6 +49,11 @@
     state: enabled
     immediate: true
     permanent: true
+
+- name: Restart gitea to apply
+  service:
+    name: minecraft-server
+    state: enable
 
 - name: Start Minecraft server
   service:
