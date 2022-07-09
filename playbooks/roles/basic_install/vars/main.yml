@@ -32,3 +32,4 @@ ansible_collections:
   - community.general
   - community.postgresql
   - ansible.posix
+  - geerlingguy.jenkins

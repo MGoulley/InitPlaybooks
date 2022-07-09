@@ -11,6 +11,11 @@ all:
         mattous.fr: 
           ansible_user: ansible
           ansible_host: 51.75.200.220
+    jenkins-server:
+      hosts:
+        mattous.fr: 
+          ansible_user: ansible
+          ansible_host: 51.75.200.220
     minecraft-server:
       hosts:
         mattous.fr: 

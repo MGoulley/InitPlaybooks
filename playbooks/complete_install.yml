@@ -8,5 +8,8 @@
 - name: Install Gitea Server
   import_playbook: install_gitea-server.yml
 
+- name: Install Jenkins Server
+  import_playbook: install_jenkins-server.yml
+
 - name: Install Minecraft Server
   import_playbook: install_minecraft-server.yml
