@@ -1,6 +1,6 @@
 ---
 - name: "Install postgres packages"
-  yum:
+  dnf:
     name: "{{ postgres_packages_to_install }}"
     state: present
 

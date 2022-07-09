@@ -7,15 +7,15 @@ ANSIBLE_SUDOERS_FILE="/etc/sudoers.d/$ANSIBLE_USERNAME"
 ANSIBLE_USER_HOME="/home/$ANSIBLE_USERNAME"
 # Main :
 echo "[INFO] Update system"
-yum -y update
+dnf -y update
 echo "[INFO] Upgrade system"
-yum -y upgrade
+dnf -y upgrade
 echo "[INFO] Add Dev tools"
-yum -y groupinstall "Development Tools"
+dnf -y groupinstall "Development Tools"
 echo "[INFO] Install Epel-Repo"
-yum -y install epel-release
+dnf -y install epel-release
 echo "[INFO] Install Ansible"
-yum -y install ansible
+dnf -y install ansible
 echo "[INFO] Create Ansible user"
 adduser "$ANSIBLE_USERNAME"
 echo "[INFO] Add password"

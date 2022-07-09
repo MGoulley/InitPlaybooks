@@ -8,7 +8,7 @@ unnecessary_software:
   - nmap-ncat
   - wpa_supplicant
 
-yum_packages_to_install:
+dnf_packages_to_install:
   - firewalld
   - openssl-devel
   - bzip2-devel

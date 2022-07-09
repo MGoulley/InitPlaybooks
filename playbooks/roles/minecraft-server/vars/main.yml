@@ -1,5 +1,5 @@
 ---
-yum_packages_to_install:
+dnf_packages_to_install:
   - tmux
   - java-1.8.0-openjdk
   - java-latest-openjdk

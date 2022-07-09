@@ -1,17 +1,17 @@
 ---
 - name: Perform full patching
-  yum:
+  dnf:
     name: '*'
     state: latest
     skip_broken: true
 
 - name: Remove unused packages
-  yum:
+  dnf:
     autoremove: true
 
-- name: Install yum packages list {{ yum_packages_to_install | join(' ') }}
-  yum:
-    name: "{{ yum_packages_to_install }}"
+- name: Install dnf packages list {{ dnf_packages_to_install | join(' ') }}
+  dnf:
+    name: "{{ dnf_packages_to_install }}"
 
 - name: Upload python requierements file
   copy:

@@ -1,9 +1,9 @@
 ---
 - name: Perform full patching
-  yum:
+  dnf:
     name: '*'
     state: latest
 
-- name: Install yum packages list {{ yum_packages_to_install | join(' ') }}
-  yum:
-    name: "{{ yum_packages_to_install }}"
+- name: Install dnf packages list {{ dnf_packages_to_install | join(' ') }}
+  dnf:
+    name: "{{ dnf_packages_to_install }}"
