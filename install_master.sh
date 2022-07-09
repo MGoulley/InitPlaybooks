@@ -33,3 +33,4 @@ echo "[ansible-master]" > /etc/ansible/hosts
 echo "$MASTER_HOSTNAME ansible_user=$ANSIBLE_USERNAME" >> /etc/ansible/hosts
 echo "[INFO] Clone playbooks repository"
 runuser -l "$ANSIBLE_USERNAME" -c "git clone $GIT_PLAYBOOKS_REPO_URL $ANSIBLE_USER_HOME/app/"
+chown $ANSIBLE_USERNAME:$ANSIBLE_USERNAME "$ANSIBLE_USER_HOME/app/"
