@@ -4,6 +4,7 @@
     name: '*'
     state: latest
     skip_broken: true
+    nobest: yes
 
 - name: Remove unused packages
   dnf:
