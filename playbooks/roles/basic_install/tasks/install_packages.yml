@@ -3,6 +3,7 @@
   yum:
     name: '*'
     state: latest
+    skip_broken: true
 
 - name: Remove unused packages
   yum:
