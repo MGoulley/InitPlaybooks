@@ -16,6 +16,10 @@ all:
         mattous.fr: 
           ansible_user: ansible
           ansible_host: 51.75.200.220
+      vars:
+        jenkins_prefer_lts: true
+        jenkins_hostname: jenkins.mattous.fr
+        jenkins_http_port: 8080
     minecraft-server:
       hosts:
         mattous.fr: 

@@ -9,10 +9,42 @@
   hosts: jenkins-server
   become: true
   tasks:
-  - name: Add jenkins service to firewall
+  - name: Add jenkins port to internal zone in firewall
     firewalld:
       zone: public
-      service: "jenkins"
+      port: "{{ jenkins_http_port }}/tcp"
       state: enabled
       immediate: true
       permanent: true
+
+  - name: copy jenkins nginx conf
+    template:
+      src: files/nginx/jenkins.conf.j2
+      dest: /etc/nginx/sites-available/jenkins.conf
+      owner: root
+      group: root
+      mode: '0644'
+
+  - name: Create a symbolic link to enabled sites
+    ansible.builtin.file:
+      src: /etc/nginx/sites-available/jenkins.conf
+      dest: /etc/nginx/sites-enabled
+      owner: root
+      group: root
+      state: link
+
+  - name: Restart nginx to apply
+    service:
+      name: nginx
+      state: restarted
+  
+  - name: Set httpd_can_network_connect flag on and keep it persistent across reboots
+    ansible.posix.seboolean:
+      name: httpd_can_network_connect
+      state: yes
+      persistent: yes
+
+  - name: Restart jenkins to apply
+    service:
+      name: jenkins
+      state: restarted
