@@ -1,17 +1,17 @@
 ---
 - name: Perform full patching
-   ansible.builtin.dnf:
+  ansible.builtin.dnf:
     name: '*'
     state: latest
     skip_broken: true
     nobest: yes
 
 - name: Remove unused packages
-   ansible.builtin.dnf:
+  ansible.builtin.dnf:
     autoremove: true
 
 - name: Install dnf packages list {{ dnf_packages_to_install | join(' ') }}
-   ansible.builtin.dnf:
+  ansible.builtin.dnf:
     name: "{{ dnf_packages_to_install }}"
 
 - name: Upload python requierements file
